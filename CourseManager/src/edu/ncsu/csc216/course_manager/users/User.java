@@ -4,7 +4,7 @@
 package edu.ncsu.csc216.course_manager.users;
 
 /**
- * @author kawaii_musume
+ * @author Manaka Green
  *
  */
 public abstract class User {
