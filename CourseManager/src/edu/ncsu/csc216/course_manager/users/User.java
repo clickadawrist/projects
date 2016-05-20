@@ -3,6 +3,8 @@
  */
 package edu.ncsu.csc216.course_manager.users;
 
+import edu.ncsu.csc216.course_manager.courses.Course;
+
 /**
  * @author Manaka Green
  *
@@ -139,6 +141,35 @@ public abstract class User {
 		return password;
 	}
 
+	/**
+	 * Returns true if the student can add the course to their schedule.
+	 * @param c Course to check
+	 * @return true if the course can be added
+	 */
+	public abstract boolean canAddCourse(Course c);
+
+	/**
+	 * Adds a course to the user.  Returns false if the course cannot be 
+	 * added.
+	 * @param c Course to add
+	 * @return true if the course is added
+	 */
+	public abstract boolean addCourse(Course c);
+
+	/**
+	 * Removes a course from the user.  Returns false if the course cannot 
+	 * be removed.
+	 * @param c Course to remove
+	 * @return true if the course is remove
+	 */
+	public abstract boolean removeCourse(Course c);
+
+	/**
+	 * Returns a list of courses for the user.
+	 * @return user's courses
+	 */
+	public abstract Course[] getCourses();
+	
 	/** (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
 	 */
@@ -192,5 +223,13 @@ public abstract class User {
 		} else if (!password.equals(other.password))
 			return false;
 		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return firstName + "," + lastName + "," + id + "," + email + "," + password;
 	}   	
 }
