@@ -12,7 +12,10 @@ import edu.ncsu.csc216.course_manager.courses.Course;
  *
  */
 public class Student extends User {
-
+// A Student is considered "equal" if 1) the User parts of 
+// Student are the same and 2) the list of courses and maxCredits are the same.
+// So I just implemented the name, courses, and maxCredits 
+	
 	/**  */
 	private ArrayList<Course> courses;
 	private String name;
@@ -98,4 +101,51 @@ public class Student extends User {
 		return null;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = super.hashCode();
+		result = prime * result + ((courses == null) ? 0 : courses.hashCode());
+		result = prime * result + maxCredits;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (!super.equals(obj))
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		if (courses == null) {
+			if (other.courses != null)
+				return false;
+		} else if (!courses.equals(other.courses))
+			return false;
+		if (maxCredits != other.maxCredits)
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return courses + "," + maxCredits + "," + super.toString();
+	}
 }
