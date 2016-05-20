@@ -3,22 +3,32 @@
  */
 package edu.ncsu.csc216.course_manager.courses;
 
+import java.util.ArrayList;
+
+import edu.ncsu.csc216.course_manager.users.Student;
+import edu.ncsu.csc216.course_manager.users.User;
+
 /**
  * @author Manaka Green
  *
  */
-public class Course {
+public class Course implements Enrollable {
 	
+	/** Students enrolled in the course */
+	private ArrayList<User> enrolledStudents;
+
 	/**
-	 * @param name
-	 * @param credits
-	 * @param capacity
+	 * Creates a Course with the given name and credit hours.
+	 * @param name course name
+	 * @param credits course credit hours
+	 * @param capacity course capacity
 	 */
 	public Course(String name, int credits, int capacity) {
 		super();
-		this.name = name;
-		this.credits = credits;
-		this.capacity = capacity;
+		enrolledStudents = new ArrayList<User>();
+		setName(name);
+		setCredits(credits);
+		setCapacity(capacity);
 	}
 
 	private String name;
@@ -71,7 +81,7 @@ public class Course {
 	 * @param capacity the capacity to set
 	 */
 	public void setCapacity(int capacity) {
-		if (capacity <= 0) {
+		if (capacity <= 0 || capacity < enrolledStudents.size()) {
 			throw new IllegalArgumentException();
 		}
 		this.capacity = capacity;
@@ -114,5 +124,55 @@ public class Course {
 	@Override
 	public String toString() {
 		return name + "," + credits + "," + capacity;
-	}	
+	}
+
+	/**
+	 * Returns the enrolled students as an array.
+	 * @return enrolled students
+	 */
+	public Student [] getEnrolledStudents() {
+		Student [] s = new Student[enrolledStudents.size()];
+		return enrolledStudents.toArray(s);
+	}
+
+	/**
+	 * Returns true if there is capacity to add a user to the course and the 
+	 * user is not already enrolled.
+	 * @param user User to add to the course
+	 * @return true if there is capacity
+	 */
+	public boolean canEnroll(User user) {
+		if (enrolledStudents.size() < capacity) {
+			if (user instanceof Student) {
+				Student s = (Student) user;
+				for (int i = 0; i < enrolledStudents.size(); i++) {
+					if (enrolledStudents.get(i).equals(s)) {
+						return false;
+					}
+				}
+				return true;
+			}
+			return false;
+		}
+		return false;
+	}
+
+	/**
+	 * Enroll the user in the course if there is room.
+	 * @param user user to enroll
+	 * @return true if user is enrolled.
+	 */
+	public boolean enroll(User user) {
+		return canEnroll(user) && enrolledStudents.add(user);
+	}
+
+	/**
+	 * Drops the student from the course.
+	 * @param user student to drop
+	 * @return true if the student is dropped
+	 */
+	public boolean drop(User user) {
+		return enrolledStudents.remove(user);
+	}
+	
 }
