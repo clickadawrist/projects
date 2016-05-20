@@ -6,8 +6,8 @@ package edu.ncsu.csc216.course_manager.users;
 import edu.ncsu.csc216.course_manager.courses.Course;
 
 /**
+ * User abstract class.
  * @author Manaka Green
- *
  */
 public abstract class User {
 	
