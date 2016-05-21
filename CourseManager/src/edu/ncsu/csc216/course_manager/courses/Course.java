@@ -25,7 +25,9 @@ public class Course implements Enrollable {
 	 */
 	public Course(String name, int credits, int capacity) {
 		super();
+		//constructing an array list: start with an empty list vvv
 		enrolledStudents = new ArrayList<User>();
+		//now we can implement the methods from enrollable
 		setName(name);
 		setCredits(credits);
 		setCapacity(capacity);
@@ -81,14 +83,16 @@ public class Course implements Enrollable {
 	 * @param capacity the capacity to set
 	 */
 	public void setCapacity(int capacity) {
+	//We should not be able to set the capacity to a value 
+	//less than the current number of enrolled students	
 		if (capacity <= 0 || capacity < enrolledStudents.size()) {
 			throw new IllegalArgumentException();
 		}
 		this.capacity = capacity;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
+	/**
+	 * hashCode
 	 */
 	@Override
 	public int hashCode() {
@@ -98,8 +102,8 @@ public class Course implements Enrollable {
 		return result;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
+	/**
+	 * equals
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -144,6 +148,7 @@ public class Course implements Enrollable {
 	public boolean canEnroll(User user) {
 		if (enrolledStudents.size() < capacity) {
 			if (user instanceof Student) {
+			//checks to see if user is student	
 				Student s = (Student) user;
 				for (int i = 0; i < enrolledStudents.size(); i++) {
 					if (enrolledStudents.get(i).equals(s)) {
@@ -174,5 +179,4 @@ public class Course implements Enrollable {
 	public boolean drop(User user) {
 		return enrolledStudents.remove(user);
 	}
-	
 }
