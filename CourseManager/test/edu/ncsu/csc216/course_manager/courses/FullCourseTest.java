@@ -1,5 +1,5 @@
 package edu.ncsu.csc216.course_manager.courses;
-
+/*
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -7,15 +7,15 @@ import org.junit.Test;
 import edu.ncsu.csc216.course_manager.courses.Course;
 import edu.ncsu.csc216.course_manager.users.Student;
 
-/**
+*//**
  * Tests the enroll and drop methods of Course.
  * @author SarahHeckman
- */
+ *//*
 public class FullCourseTest {
 
-	/**
+	*//**
 	 * Tests enroll().
-	 */
+	 *//*
 	@Test
 	public void testEnroll() {
 		//Add a student to a course
@@ -35,9 +35,9 @@ public class FullCourseTest {
 		//canEnroll() is tested through enroll()
 	}
 	
-	/**
+	*//**
 	 * Tests drop().
-	 */
+	 *//*
 	@Test
 	public void testDrop() {
 		//Attempt to drop a student not enrolled in the course
@@ -51,9 +51,9 @@ public class FullCourseTest {
 		assertEquals(0, c.getEnrolledStudents().length);
 	}
 	
-	/**
+	*//**
 	 * Test changing the capacity when considering enrollments.
-	 */
+	 *//*
 	@Test
 	public void testSetCapacity() {
 		//Test correct path
@@ -80,9 +80,9 @@ public class FullCourseTest {
 		}
 	}
 	
-	/**
+	*//**
 	 * Tests equals() and hashCode() methods.
-	 */
+	 *//*
 	@Test
 	public void testEqualsHashCode() {
 		Course c1 = new Course("CSC216", 3, 3);
@@ -99,9 +99,9 @@ public class FullCourseTest {
 		assertEquals(c1.hashCode(), c4.hashCode());
 	}
 	
-	/**
+	*//**
 	 * Test toString() method.
-	 */
+	 *//*
 	@Test
 	public void testToString() {
 		Course c1 = new Course("CSC216", 3, 3);
@@ -109,3 +109,4 @@ public class FullCourseTest {
 	}
 
 }
+*/

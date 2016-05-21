@@ -1,5 +1,5 @@
 package edu.ncsu.csc216.course_manager.users;
-
+/*
 import static org.junit.Assert.*;
 
 import java.security.MessageDigest;
@@ -11,19 +11,19 @@ import org.junit.Test;
 
 public class StudentStateTest {
 
-	/** Student for testing */
+	*//** Student for testing *//*
 	private Student s;
-	/** Test user's first name. */
+	*//** Test user's first name. *//*
 	private String firstName = "first";
-	/** Test user's last name */
+	*//** Test user's last name *//*
 	private String lastName = "last";
-	/** Test user's id */
+	*//** Test user's id *//*
 	private String id = "flast";
-	/** Test user's email */
+	*//** Test user's email *//*
 	private String email = "first_last@ncsu.edu";
-	/** Test user's hashed password */
+	*//** Test user's hashed password *//*
 	private String hashPW;
-	/** Hashing algorithm */
+	*//** Hashing algorithm *//*
 	private static final String HASH_ALGORITHM = "SHA-256";
 	
 	//This is a block of code that is executed when the UserTest object is
@@ -43,17 +43,17 @@ public class StudentStateTest {
 		}
 	}
 	
-	/**
+	*//**
 	 * Sets up a student object for testing.
-	 */
+	 *//*
 	@Before
 	public void setUp() {
 		s = new Student(firstName, lastName, id, email, hashPW);
 	}
 
-	/**
+	*//**
 	 * Tests that a Student is constructed correctly.
-	 */
+	 *//*
 	@Test
 	public void testStudent() {
 		assertEquals(firstName, s.getFirstName());
@@ -73,9 +73,9 @@ public class StudentStateTest {
 		assertEquals(15, s1.getMaxCredits());
 	}
 	
-	/**
+	*//**
 	 * Tests setting the max credits.  Also tests getting the credits.
-	 */
+	 *//*
 	@Test
 	public void testMaxCredits() {
 		//Test if max credits are less than 0
@@ -106,3 +106,4 @@ public class StudentStateTest {
 	}
 
 }
+*/

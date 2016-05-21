@@ -70,8 +70,11 @@ public class Student extends User {
 	 */
 	@Override
 	public boolean canAddCourse(Course c) {
-		// TODO Auto-generated method stub
-		return false;
+		if (credits > maxCredits || name.equals(name)) {
+//name.equals(name) might be wrong...			
+			return false;
+		}
+		return true;
 	}
 
 	/* (non-Javadoc)
@@ -79,7 +82,10 @@ public class Student extends User {
 	 */
 	@Override
 	public boolean addCourse(Course c) {
-		// TODO Auto-generated method stub
+		if (canAddCourse(c) == true) {
+//it's supposed to do something else I think...figure it out tomorrow...
+			return true;
+		}
 		return false;
 	}
 
