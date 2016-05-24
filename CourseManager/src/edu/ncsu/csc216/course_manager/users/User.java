@@ -170,8 +170,8 @@ public abstract class User {
 	 */
 	public abstract Course[] getCourses();
 	
-	/** (non-Javadoc)
-	 * @see java.lang.Object#hashCode()
+	/** 
+	 * hashCode
 	 */
 	@Override
 	public int hashCode() {
@@ -185,8 +185,8 @@ public abstract class User {
 		return result;
 	}
 
-	/** (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
+	/**
+	 * equals
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -225,8 +225,8 @@ public abstract class User {
 		return true;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/**
+	 * toString
 	 */
 	@Override
 	public String toString() {

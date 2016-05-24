@@ -1,6 +1,6 @@
 package edu.ncsu.csc216.course_manager.users;
 
-/*
+
 import static org.junit.Assert.*;
 
 import java.security.MessageDigest;
@@ -10,17 +10,17 @@ import org.junit.Test;
 
 public class StudentObjectTest {
 
-	*//** Test user's first name. *//*
+	/** Test user's first name. */
 	private String firstName = "first";
-	*//** Test user's last name *//*
+	/** Test user's last name */
 	private String lastName = "last";
-	*//** Test user's id *//*
+	/** Test user's id */
 	private String id = "flast";
-	*//** Test user's email *//*
+	/** Test user's email */
 	private String email = "first_last@ncsu.edu";
-	*//** Test user's hashed password *//*
+	/** Test user's hashed password */
 	private String hashPW;
-	*//** Hashing algorithm *//*
+	/** Hashing algorithm */
 	private static final String HASH_ALGORITHM = "SHA-256";
 	
 	//This is a block of code that is executed when the UserTest object is
@@ -40,9 +40,9 @@ public class StudentObjectTest {
 		}
 	}
 
-	*//**
+	/**
 	 * Tests equals() and hashCode() methods.
-	 *//*
+	 */
 	@Test
 	public void testEqualsHashCode() {
 		User u1 = new Student(firstName, lastName, id, email, hashPW);
@@ -65,13 +65,12 @@ public class StudentObjectTest {
 		assertNotEquals(u1.hashCode(), u6.hashCode());
 	}
 	
-	*//**
+	/**
 	 * Test toString() method.
-	 *//*
+	 */
 	@Test
 	public void testToString() {
 		User u1 = new Student(firstName, lastName, id, email, hashPW);
 		assertEquals("first,last,flast,first_last@ncsu.edu," + hashPW + ",18", u1.toString());
 	}
 }
-*/

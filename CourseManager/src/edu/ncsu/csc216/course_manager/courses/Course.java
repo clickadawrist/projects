@@ -16,7 +16,12 @@ public class Course implements Enrollable {
 	
 	/** Students enrolled in the course */
 	private ArrayList<User> enrolledStudents;
-
+	private String name;
+	private int credits;
+	private int capacity;
+	public static final int MIN_HOURS = 1;
+	public static final int MAX_HOURS = 4;
+	
 	/**
 	 * Creates a Course with the given name and credit hours.
 	 * @param name course name
@@ -33,12 +38,6 @@ public class Course implements Enrollable {
 		setCapacity(capacity);
 	}
 
-	private String name;
-	private int credits;
-	private int capacity;
-	public static final int MIN_HOURS = 1;
-	public static final int MAX_HOURS = 4;
-	
 	/**
 	 * @return the name
 	 */
@@ -164,8 +163,8 @@ public class Course implements Enrollable {
 
 	/**
 	 * Enroll the user in the course if there is room.
-	 * @param user user to enroll
-	 * @return true if user is enrolled.
+	 * @param user User to enroll
+	 * @return true if user is enrolled
 	 */
 	public boolean enroll(User user) {
 		return canEnroll(user) && enrolledStudents.add(user);
@@ -173,7 +172,7 @@ public class Course implements Enrollable {
 
 	/**
 	 * Drops the student from the course.
-	 * @param user student to drop
+	 * @param user User student to drop
 	 * @return true if the student is dropped
 	 */
 	public boolean drop(User user) {
