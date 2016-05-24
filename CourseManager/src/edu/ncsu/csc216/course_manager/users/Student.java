@@ -5,15 +5,15 @@ import java.util.ArrayList;
 import edu.ncsu.csc216.course_manager.courses.Course;
 
 /**
+ * 
  * @author Manaka Green
- *
  */
 public class Student extends User {
 // A Student is considered "equal" if 1) the User parts of 
 // Student are the same and 2) the list of courses and maxCredits are the same.
-// So I just implemented the name, courses, and maxCredits 
+// So I just implemented the name, courses, and maxCredits...
 	
-	/**  */
+	/**List of courses that the student is enrolled in.*/
 	private ArrayList<Course> courses;
 	/**Name of the course.*/
 	private String name;
@@ -56,13 +56,14 @@ public class Student extends User {
 	}
 
 	/**
+	 * If the max credits is less than 0, more than the 18 credits, or the new maxCredits 
+	 * would be less than the total credits a Student is enrolled in, 
+	 * an IllegalArgumentException is thrown.
 	 * @param maxCredits the maxCredits to set
 	 */
 	public void setMaxCredits(int maxCredits) {
-///////HELP
-		if(maxCredits < 0 || maxCredits > MAX_CREDITS || maxCredits < this.maxCredits) {
-			//third statement^^ supposed to throw an Illegal Argument Exception if new maxCredits is less than the total credits a student is enrolled in
-			//it's either capacity or getCurrentCredits()...
+		//if(maxCredits < 0 || maxCredits > MAX_CREDITS || maxCredits < this.maxCredits) {
+		  if(maxCredits < 0 || maxCredits > MAX_CREDITS || maxCredits < getCurrentCredits()) {	
 			throw new IllegalArgumentException();
 		}
 		this.maxCredits = maxCredits;
@@ -73,13 +74,13 @@ public class Student extends User {
 	 * @return 
 	 */
 	public int getCurrentCredits() {
-////////have no idea how to do this as of now
-		//sum =+ whatever?
-		
-		for (int i = 0; i < courses.size(); i++) {
-		
+		//courses arraylist: course objects
+		int currentCredits = 0; 
+		for (int i = 0; i < courses.size(); i++) { 
+			Course amountOfCredits = courses.get(credits);
+			currentCredits = currentCredits + amountOfCredits.getCredits();
 			}
-		return credits;
+		return currentCredits;
 	}
 	
 	/** 
@@ -90,7 +91,7 @@ public class Student extends User {
 	 */
 	@Override
 	public boolean canAddCourse(Course c) {
-		if (credits > maxCredits) {	
+		if (getCurrentCredits() + c.getCredits() > maxCredits) {	
 			return false;
 		}
 		for (int i = 0; i < courses.size(); i++) {
@@ -109,7 +110,7 @@ public class Student extends User {
 	@Override
 	public boolean addCourse(Course c) {
 		if (canAddCourse(c) == true) {
-			courses.add(c);
+			return canAddCourse(c) && courses.add(c);
 		}
 		return false;
 	}
