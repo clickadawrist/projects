@@ -39,7 +39,7 @@ public class Course implements Enrollable {
 	}
 
 	/**
-	 * @return the name
+	 * @return the name of the course
 	 */
 	public String getName() {
 		return name;		

@@ -6,9 +6,14 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
+
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import edu.ncsu.csc216.course_manager.courses.Course;
 import edu.ncsu.csc216.course_manager.io.CourseRecordIO;
+import edu.ncsu.csc216.course_manager.io.StudentRecordIO;
 import edu.ncsu.csc216.course_manager.users.Student;
 import edu.ncsu.csc216.course_manager.users.User;
 
@@ -224,5 +229,29 @@ public class CourseManager {
 		} catch (IOException e) {
 			throw new IllegalArgumentException(e.getMessage());
 		}
+	}
+	
+	/**
+	 * Finds a Course object in CourseManager's courses list by a name.
+	 */
+	public Course getCourseByName(String fileName) {
+		//What do I do? A for loop?
+//look through arraylist of courses (instance field)see if 
+//check through the course list to the fileName - compare between 
+//Does CSC216 exist in our arraylist
+		
+/*		this.studentFileName = fileName;
+			if (canAddCourse().equals(false)) {
+				return null;
+			}
+*/
+		return null;
+		//If the returned Course is null, then the Scanner should be closed and an 
+		//IllegalArgumentException should be thrown. 
+		//This means that the Student record had an invalid course and will be ignored.
+		//If the Student cannot enroll in the Course, then the Scanner should be closed
+		//and an IllegalArgumentException should be thrown. 
+		//This means that the Student record is invalid because the Student cannot enroll 
+		//in the listed Course.
 	}
 }
