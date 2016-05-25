@@ -71,20 +71,24 @@ public class StudentRecordIO {
 			//#2 we're going to use this as we're looping through different courses
 			while (lineScanner.hasNext()) {
 				Course c = CourseManager.getInstance().getCourseByName(lineScanner.next());
-//				if(Course == null) {
-///////////////					
+				if(c == null) {
+					lineScanner.close();
+					throw new IllegalArgumentException();		
 				}
+				if (c.canEnroll(s) == false) {
+					lineScanner.close();
+					throw new IllegalArgumentException();
+				}
+			 s.addCourse(c); 
+			 c.enroll(s);	
 			}
+			
 			lineScanner.close();
 			return s;
 		} catch (NoSuchElementException e) {
 			lineScanner.close();
 			throw new IllegalArgumentException();
 		}
-		
-		
-		
-		
 		
 		//If the returned Course is null, then the Scanner should be closed and an 
 		//IllegalArgumentException should be thrown. 
