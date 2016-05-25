@@ -14,6 +14,9 @@ import edu.ncsu.csc216.course_manager.users.User;
  *
  */
 public class CourseManager {
+	//Instead of handling it inside the readCourseRecords() method, 
+	//we want the exception to propagate to the client (in this case the CourseManager class),
+	//which will handle it in a more appropriate manner for the rest of the requirements. 
 	/** CourseManager singleton instance */
 	private static CourseManager manager;
 

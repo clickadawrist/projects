@@ -1,0 +1,10 @@
+Zahir,King,zking,orci.Donec@ametmassaQuisque.com,0ÉRú±"ÃùuŸ¦Ù\7X²F´şâ9•{-OîFâapÄ,15,CSC216,CSC226
+Cassandra,Schwartz,cschwartz,semper@imperdietornare.co.uk,0ÉRú±"ÃùuŸ¦Ù\7X²F´şâ9•{-OîFâapÄ,4,CSC116
+Shannon,Hansen,shansen,convallis.est.vitae@arcu.ca,0ÉRú±"ÃùuŸ¦Ù\7X²F´şâ9•{-OîFâapÄ,14,CSC216,CSC226,CSC379
+Demetrius,Austin,daustin,Curabitur.egestas.nunc@placeratorcilacus.co.uk,0ÉRú±"ÃùuŸ¦Ù\7X²F´şâ9•{-OîFâapÄ,18,CSC116,CSC216,CSC226,CSC230,CSC236,CSC246
+Raymond,Brennan,rbrennan,litora.torquent@pellentesquemassalobortis.ca,0ÉRú±"ÃùuŸ¦Ù\7X²F´şâ9•{-OîFâapÄ,12,CSC116,CSC216,CSC226,CSC230
+Emerald,Frost,efrost,adipiscing@acipsumPhasellus.edu,0ÉRú±"ÃùuŸ¦Ù\7X²F´şâ9•{-OîFâapÄ,3,CSC216
+Lane,Berg,lberg,sociis@non.org,0ÉRú±"ÃùuŸ¦Ù\7X²F´şâ9•{-OîFâapÄ,14
+Griffith,Stone,gstone,porta@magnamalesuadavel.net,0ÉRú±"ÃùuŸ¦Ù\7X²F´şâ9•{-OîFâapÄ,17,CSC116,CSC216,CSC226,CSC230
+Althea,Hicks,ahicks,Phasellus.dapibus@luctusfelis.com,0ÉRú±"ÃùuŸ¦Ù\7X²F´şâ9•{-OîFâapÄ,11,CSC116,CSC216,CSC226,CSC379
+Dylan,Nolan,dnolan,placerat.Cras.dictum@dictum.net,0ÉRú±"ÃùuŸ¦Ù\7X²F´şâ9•{-OîFâapÄ,1,CSC379
