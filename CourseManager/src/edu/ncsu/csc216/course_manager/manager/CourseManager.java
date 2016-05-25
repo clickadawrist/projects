@@ -1,10 +1,14 @@
 package edu.ncsu.csc216.course_manager.manager;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.List;
 
 import edu.ncsu.csc216.course_manager.courses.Course;
+import edu.ncsu.csc216.course_manager.io.CourseRecordIO;
 import edu.ncsu.csc216.course_manager.users.Student;
 import edu.ncsu.csc216.course_manager.users.User;
 
@@ -16,7 +20,9 @@ import edu.ncsu.csc216.course_manager.users.User;
 public class CourseManager {
 	//Instead of handling it inside the readCourseRecords() method, 
 	//we want the exception to propagate to the client (in this case the CourseManager class),
-	//which will handle it in a more appropriate manner for the rest of the requirements. 
+	//which will handle it in a more appropriate manner for the rest of the requirements.
+	
+	//Client of CourseManager is the CourseManagerGUI
 	/** CourseManager singleton instance */
 	private static CourseManager manager;
 
@@ -178,5 +184,45 @@ public class CourseManager {
 		currentUser = null;
 		courseFileName = null;
 		studentFileName = null;
+	}
+	
+	/**
+	 * Loads the list of Courses from the given file.
+	 * @param fileName name of file containing courses
+	 */
+	public void loadCourses(String fileName) {
+		this.courseFileName = fileName;
+		try {
+			List<Course> coursesFromFile = CourseRecordIO.readCourseRecords(courseFileName);
+			for (Course c : coursesFromFile) {
+				addCourse(c);
+			}
+		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException(e.getMessage());
+		}
+	}
+
+	/**
+	 * Adds a course to the list of courses. 
+	 * @param course Course to add
+	 */
+	public void addCourse(Course course) {
+		for (Course c: courses) {
+			if (c.equals(course)) {
+				return;
+			}
+		}
+		courses.add(course);
+	}
+	
+	/**
+	 * Writes the list of Courses to the courseFileName.
+	 */
+	public void saveCourses() {
+		try {
+			CourseRecordIO.writeCourseRecords(courseFileName, courses);
+		} catch (IOException e) {
+			throw new IllegalArgumentException(e.getMessage());
+		}
 	}
 }

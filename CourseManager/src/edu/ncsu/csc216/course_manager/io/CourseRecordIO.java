@@ -19,7 +19,9 @@ import edu.ncsu.csc216.course_manager.courses.Course;
  *
  */
 public class CourseRecordIO {
-
+	//The client of CourseRecordIO is the CourseManager class.
+	//There are two methods in CourseManager that interact with CourseRecordIO: 
+	//loadCourses() and saveCourses().
 	/**
 	 * Supposed to be empty apparently
 	 */
@@ -92,4 +94,6 @@ public class CourseRecordIO {
 		
 		fileOut.close();
 	}
+	
+	
 }
