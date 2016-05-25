@@ -67,7 +67,7 @@ public class StudentRecordIO {
 			String password = lineScanner.next();
 			int maxCredits = lineScanner.nextInt();
 			//#1 creates a new Student object
-			Student s = new Student(password, password, password, password, password, maxCredits);
+			Student s = new Student(firstName, lastName, id, email, password, maxCredits);
 			//#2 we're going to use this as we're looping through different courses
 			while (lineScanner.hasNext()) {
 				Course c = CourseManager.getInstance().getCourseByName(lineScanner.next());
@@ -75,28 +75,19 @@ public class StudentRecordIO {
 					lineScanner.close();
 					throw new IllegalArgumentException();		
 				}
-				if (c.canEnroll(s) == false) {
+				else if (c.canEnroll(s) == false) {
 					lineScanner.close();
 					throw new IllegalArgumentException();
-				}
-			 s.addCourse(c); 
-			 c.enroll(s);	
+				} 
+					s.addCourse(c); 
+					c.enroll(s);
 			}
-			
 			lineScanner.close();
 			return s;
 		} catch (NoSuchElementException e) {
 			lineScanner.close();
 			throw new IllegalArgumentException();
 		}
-		
-		//If the returned Course is null, then the Scanner should be closed and an 
-		//IllegalArgumentException should be thrown. 
-		//This means that the Student record had an invalid course and will be ignored.
-/////////If the Student cannot enroll in the Course, then the Scanner should be closed
-		//and an IllegalArgumentException should be thrown. 
-		//This means that the Student record is invalid because the Student cannot enroll 
-		//in the listed Course.
 	}
 
 	/**

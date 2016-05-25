@@ -56,8 +56,8 @@ public class CourseManager {
 	}
 
 	/**
-	 * Returns the singleton instance of CourseManager.  If the instance 
-	 * doesn't exist, it will be created.
+	 * Returns the singleton instance of CourseManager.  
+	 * If the instance doesn't exist, it will be created.
 	 * @return singleton instance
 	 */
 	public static CourseManager getInstance() {
@@ -230,28 +230,32 @@ public class CourseManager {
 			throw new IllegalArgumentException(e.getMessage());
 		}
 	}
-	
+
 	/**
 	 * Finds a Course object in CourseManager's courses list by a name.
+	 * Compares list of all courses from CourseManager's list to each student's list.
 	 */
-	public Course getCourseByName(String fileName) {
-		//What do I do? A for loop?
-//look through arraylist of courses (instance field)see if 
-//check through the course list to the fileName - compare between 
+	public Course getCourseByName(String courseFileName) {
+//What do I do? A for loop?
+//look through arraylist of courses (instance field) 
+//check through the course list to the fileName - compare between them
 //Does CSC216 exist in our arraylist
 		
-/*		this.studentFileName = fileName;
-			if (canAddCourse().equals(false)) {
+		for (Course c: courses) {
+			if (c.getName().equals(courseFileName)) {
+				return c;
+			}
+		}
+		return null;
+		
+		/*
+		for (int i = 0; i < courses.size(); i++) { 
+			//String studentListOfAddedClasses = fileName;
+			if(courses.get(i).toString().compareTo(studentFileName) != 0) {
 				return null;
 			}
-*/
-		return null;
-		//If the returned Course is null, then the Scanner should be closed and an 
-		//IllegalArgumentException should be thrown. 
-		//This means that the Student record had an invalid course and will be ignored.
-		//If the Student cannot enroll in the Course, then the Scanner should be closed
-		//and an IllegalArgumentException should be thrown. 
-		//This means that the Student record is invalid because the Student cannot enroll 
-		//in the listed Course.
+			//what am I doing
+		}
+		*/
 	}
 }
