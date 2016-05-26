@@ -73,7 +73,7 @@ public class Student extends User {
 
 	/**
 	 * Returns the sum of all of the credits for courses the in the student's schedule.
-	 * @return 
+	 * @return currentCredits
 	 */
 	public int getCurrentCredits() {
 		//courses arraylist: course objects
@@ -182,13 +182,10 @@ public class Student extends User {
 	 */
 	@Override
 	public String toString() {
-		
+		name = "";
 		for (Course s: courses) { 
 			name += "," + s.getName();
 		}
-		
-		System.out.println(super.toString() + "," + maxCredits + name);
 		return super.toString() + "," + maxCredits + name; 
-		
 	}	
 }

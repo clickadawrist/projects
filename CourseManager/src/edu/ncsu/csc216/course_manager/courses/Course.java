@@ -48,7 +48,6 @@ public class Course implements Enrollable {
 	 */
 	public String getName() {
 		return name;		
-		//
 	}
 	
 	/**
@@ -132,7 +131,6 @@ public class Course implements Enrollable {
 	 */
 	@Override
 	public String toString() {
-		System.out.println(name + "," + credits + "," + capacity);
 		return name + "," + credits + "," + capacity;
 	}
 
