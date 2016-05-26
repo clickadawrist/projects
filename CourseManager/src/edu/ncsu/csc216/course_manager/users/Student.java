@@ -13,23 +13,27 @@ public class Student extends User {
 // Student are the same and 2) the list of courses and maxCredits are the same.
 // So I just implemented the name, courses, and maxCredits...
 	
-	/**List of courses that the student is enrolled in.*/
+	/**List of courses that the student is enrolled in. */
 	private ArrayList<Course> courses;
-	/**Name of the course.*/
+	/**Name of the course. */
 	private String name;
-	/**How many credits the course is.*/
+	/**How many credits the course is. */
 	private int credits;
-	/**The amount of seats for students.*/
-	private int capacity;
-	/** */
+	
+	//vv unused apparently
+	///**The amount of seats for students.*/
+	//private int capacity;
+	
+	/**Maximum credits any student can have. */
 	public static final int MAX_CREDITS = 18;
-	/** */
+	/**Maximum credits a specific student can have (unique to each student). */
 	private int maxCredits;
 	
 	/**
-	 * @param firstName
-	 * @param lastName
-	 * @param id
+	 * 
+	 * @param firstName First name of student
+	 * @param lastName Last name of student
+	 * @param id Id of student
 	 * @param email
 	 * @param password
 	 */
@@ -111,7 +115,7 @@ public class Student extends User {
 	 */
 	@Override
 	public boolean addCourse(Course c) {
-		if (canAddCourse(c) == true) {
+		if (canAddCourse(c)) {
 			return canAddCourse(c) && courses.add(c);
 		}
 		return false;

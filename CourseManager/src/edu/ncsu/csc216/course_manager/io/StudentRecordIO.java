@@ -76,7 +76,7 @@ public class StudentRecordIO {
 					lineScanner.close();
 					throw new IllegalArgumentException();		
 				}
-				else if (c.canEnroll(s) == false) {
+				else if (!c.canEnroll(s)) {
 					lineScanner.close();
 					throw new IllegalArgumentException();
 				} 

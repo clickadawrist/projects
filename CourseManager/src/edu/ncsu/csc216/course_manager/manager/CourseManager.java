@@ -13,9 +13,8 @@ import edu.ncsu.csc216.course_manager.users.Student;
 import edu.ncsu.csc216.course_manager.users.User;
 
 /**
- *
+ * Manages the enrollment of Students in Courses.
  * @author Manaka Green
- *
  */
 public class CourseManager {
 	//Instead of handling it inside the readCourseRecords() method, 
@@ -23,27 +22,26 @@ public class CourseManager {
 	//which will handle it in a more appropriate manner for the rest of the requirements.
 
 	//Client of CourseManager is the CourseManagerGUI
-	/** CourseManager singleton instance */
+	/** CourseManager singleton instance. */
 	private static CourseManager manager;
-
-	/** List of all Courses in the system */
+	/** List of all Courses in the system. */
 	private ArrayList<Course> courses;
-	/** List of all Students in the system */
+	/** List of all Students in the system. */
 	private ArrayList<Student> students;
-	/** Currently logged in User */
+	/** Currently logged in User. */
 	private User currentUser;
-	/** Course records file name */
+	/** Course records file name. */
 	private String courseFileName;
-	/** Student records file name */
+	/** Student records file name. */
 	private String studentFileName;
-	/** Hashing algorithm */
+	/** Hashing algorithm. */
 	private static final String HASH_ALGORITHM = "SHA-256";
 
 	/**
-	 * Constructor for CourseManager.  It's private so that it can
-	 * only be created inside of CourseManager and we can ensure
-	 * only a single instance of the class is created.  This makes it 
-	 * very easy to work with the CourseManager throughout the system.
+	 * Constructor for CourseManager. 
+	 * It's private so that it can only be created inside of CourseManager and we can 
+	 * ensure only a single instance of the class is created.  
+	 * This makes it very easy to work with the CourseManager throughout the system.
 	 */
 	private CourseManager() {
 		courses = new ArrayList<Course>();
@@ -53,7 +51,7 @@ public class CourseManager {
 	/**
 	 * Returns the singleton instance of CourseManager.  
 	 * If the instance doesn't exist, it will be created.
-	 * @return singleton instance
+	 * @return singleton Creates instance of CourseManger
 	 */
 	public static CourseManager getInstance() {
 		if (manager == null) {
@@ -63,10 +61,10 @@ public class CourseManager {
 	}
 	
 	/**
-	 * Log user into the system if there is no one else logged in.
-	 * @param id user's id
-	 * @param password user's password
-	 * @return true if user is logged in
+	 * Logs user into the system if there is no one else logged in.
+	 * @param id User's id
+	 * @param password User's password
+	 * @return true If user is logged in
 	 */
 	public boolean login(String id, String password) {
 		//If currentUser is null, that means no one is logged in.
@@ -104,7 +102,7 @@ public class CourseManager {
 	}
 
 	/**
-	 * Log current user out of the system.
+	 * Logs current user out of the system.
 	 */
 	public void logout() {
 		currentUser = null;
@@ -113,7 +111,7 @@ public class CourseManager {
 	/**
 	 * Returns the current logged in user or null if there is 
 	 * no logged in user.
-	 * @return logged in user
+	 * @return currentUser Logged in user
 	 */
 	public User getCurrentUser() {
 		return currentUser;
@@ -121,7 +119,7 @@ public class CourseManager {
 
 	/**
 	 * Returns a list of all Courses associated with the current User.
-	 * @return list of User's courses
+	 * @return list Of user's courses
 	 */
 	public Course[] listUserCourses() {
 		if (currentUser == null) {
@@ -132,7 +130,7 @@ public class CourseManager {
 
 	/**
 	 * Returns a list of all Courses in the system.
-	 * @return list of all Courses
+	 * @return list Of all Courses
 	 */
 	public Course[] listAllCourses() {
 		Course [] allCourses = new Course[courses.size()];
@@ -143,7 +141,7 @@ public class CourseManager {
 	 * Returns true if the Course is added to the current User's
 	 * list of courses.
 	 * @param course Course to add
-	 * @return true if added to the User
+	 * @return true If added to the User
 	 */
 	public boolean addUserToCourse(Course course) {
 		if (currentUser == null) {
@@ -164,7 +162,7 @@ public class CourseManager {
 	 * Returns true if the Course is removed from the current User's
 	 * list of courses.
 	 * @param course Course to remove
-	 * @return true if removed from the User
+	 * @return true If removed from the User
 	 */
 	public boolean removeUserFromCourse(Course course) {
 		if (currentUser == null) {
@@ -188,7 +186,7 @@ public class CourseManager {
 	
 	/**
 	 * Loads the list of Courses from the given file.
-	 * @param fileName name of file containing courses
+	 * @param fileName Name of file containing courses
 	 */
 	public void loadCourses(String fileName) {
 		this.courseFileName = fileName;
@@ -230,6 +228,8 @@ public class CourseManager {
 	/**
 	 * Finds a Course object in CourseManager's courses list by a name.
 	 * Compares list of all courses from CourseManager's list to each student's list.
+	 * @param courseFileName Course records file name
+	 * @return c Course from student's list that equals the CourseManager's course list 
 	 */
 	public Course getCourseByName(String courseFileName) {
 //look through arraylist of courses (instance field)...for loop 
@@ -243,8 +243,9 @@ public class CourseManager {
 	}
 	
 	/**
-	 * 
-	 * @param fileName
+	 * Accepts the file name for the Student records file and saves it to the 
+	 * field studentFileName.
+	 * @param fileName Name of file from which you load students
 	 */
 	 public void loadStudents(String fileName) {
 		 this.studentFileName = fileName;
@@ -261,6 +262,7 @@ public class CourseManager {
 	 /**
 	  * Checks that the Student doesn't already exist in the list of Students.
 	  * (private Helper method)
+	  * Ensures that you do not add a Student with the same id to the students list.
 	  * @param student
 	  */
 	 private void addStudents(Student student) {
@@ -281,9 +283,5 @@ public class CourseManager {
 			} catch (IOException e) {
 				throw new IllegalArgumentException(e.getMessage());
 			}
-///////////		 
-		 //If there is an IOException thrown from the 
-		 //CourseRecordIO.writeCourseRecords() call, we throw an IllegalArgumentException 
-		 //with the exception message. 
 	 }
 }
