@@ -26,7 +26,7 @@ public class CourseRecordIO {
 	public CourseRecordIO() {
 		//super();
 	}
-
+ 
 	/**
 	 * Reads Course records from the given file.  If the file doesn't exist
 	 * a FileNotFoundException is thrown.  A line with a format error will be
