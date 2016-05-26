@@ -26,7 +26,7 @@ public class CourseManager {
 	//Instead of handling it inside the readCourseRecords() method, 
 	//we want the exception to propagate to the client (in this case the CourseManager class),
 	//which will handle it in a more appropriate manner for the rest of the requirements.
-	
+
 	//Client of CourseManager is the CourseManagerGUI
 	/** CourseManager singleton instance */
 	private static CourseManager manager;
@@ -43,7 +43,7 @@ public class CourseManager {
 	private String studentFileName;
 	/** Hashing algorithm */
 	private static final String HASH_ALGORITHM = "SHA-256";
-	
+
 	/**
 	 * Constructor for CourseManager.  It's private so that it can
 	 * only be created inside of CourseManager and we can ensure
@@ -208,7 +208,8 @@ public class CourseManager {
 	}
 
 	/**
-	 * Adds a course to the list of courses. 
+	 * Adds a course to the list of courses.
+	 * Checks that the Course doesn't already exist in the list of Courses. 
 	 * @param course Course to add
 	 */
 	public void addCourse(Course course) {
@@ -236,10 +237,8 @@ public class CourseManager {
 	 * Compares list of all courses from CourseManager's list to each student's list.
 	 */
 	public Course getCourseByName(String courseFileName) {
-//What do I do? A for loop?
-//look through arraylist of courses (instance field) 
+//look through arraylist of courses (instance field)...for loop 
 //check through the course list to the fileName - compare between them
-//Does CSC216 exist in our arraylist
 		
 		for (Course c: courses) {
 			if (c.getName().equals(courseFileName)) {
@@ -258,4 +257,49 @@ public class CourseManager {
 		}
 		*/
 	}
+	
+	/**
+	 * 
+	 * @param fileName
+	 */
+	 public void loadStudents(String fileName) {
+		 this.studentFileName = fileName;
+		 try {
+			List<Student> studentsFromFile = StudentRecordIO.readStudentRecords(studentFileName);
+			for (Student s : studentsFromFile) {
+				addStudents(s);
+			}
+		} catch (FileNotFoundException e) {
+			throw new IllegalArgumentException(e.getMessage());
+		}
+	 }
+
+	 /**
+	  * Checks that the Student doesn't already exist in the list of Students.
+	  * (private Helper method)
+	  * @param student
+	  */
+	 private void addStudents(Student student) {
+			for (Student s: students) {
+				if (s.equals(student)) {
+					return;
+				}
+			}
+			students.add(student);
+	 }
+
+	 /**
+	  * Writes the list of Students to the studentFileName.
+	  */
+	 public void saveStudents() { 
+		 try {
+				StudentRecordIO.writeStudentRecords(studentFileName, students);
+			} catch (IOException e) {
+				throw new IllegalArgumentException(e.getMessage());
+			}
+///////////		 
+		 //If there is an IOException thrown from the 
+		 //CourseRecordIO.writeCourseRecords() call, we throw an IllegalArgumentException 
+		 //with the exception message. 
+	 }
 }

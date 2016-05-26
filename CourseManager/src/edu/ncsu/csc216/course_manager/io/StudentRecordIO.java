@@ -20,6 +20,7 @@ import edu.ncsu.csc216.course_manager.users.Student;
  *
  */
 public class StudentRecordIO {
+	
 	/**
 	 * Supposed to be empty apparently
 	 */

@@ -21,7 +21,9 @@ public class Student extends User {
 	private int credits;
 	/**The amount of seats for students.*/
 	private int capacity;
+	/** */
 	public static final int MAX_CREDITS = 18;
+	/** */
 	private int maxCredits;
 	
 	/**
@@ -176,10 +178,17 @@ public class Student extends User {
 	}
 
 	/** 
-	 * 
+	 * toString
 	 */
 	@Override
 	public String toString() {
-		return super.toString() + "," + maxCredits; 
+		
+		for (Course s: courses) { 
+			name += "," + s.getName();
+		}
+		
+		System.out.println(super.toString() + "," + maxCredits + name);
+		return super.toString() + "," + maxCredits + name; 
+		
 	}	
 }

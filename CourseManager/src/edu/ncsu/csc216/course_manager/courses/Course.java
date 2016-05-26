@@ -16,10 +16,15 @@ public class Course implements Enrollable {
 	
 	/** Students enrolled in the course */
 	private ArrayList<User> enrolledStudents;
+	/** */
 	private String name;
+	/** */
 	private int credits;
+	/** */
 	private int capacity;
+	/** */
 	public static final int MIN_HOURS = 1;
+	/** */
 	public static final int MAX_HOURS = 4;
 	
 	/**
@@ -43,6 +48,7 @@ public class Course implements Enrollable {
 	 */
 	public String getName() {
 		return name;		
+		//
 	}
 	
 	/**
@@ -126,6 +132,7 @@ public class Course implements Enrollable {
 	 */
 	@Override
 	public String toString() {
+		System.out.println(name + "," + credits + "," + capacity);
 		return name + "," + credits + "," + capacity;
 	}
 
