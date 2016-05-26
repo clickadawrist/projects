@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import edu.ncsu.csc216.course_manager.courses.Course;
 
 /**
- * 
+ * Concrete user: Student; tests generic User classes. 
+ * Knows the max number of credit hours a Student can enroll in for a semester. 
+ * Also keeps track of the classes they are enrolled in. 
  * @author Manaka Green
  */
 public class Student extends User {
@@ -30,23 +32,24 @@ public class Student extends User {
 	private int maxCredits;
 	
 	/**
-	 * 
-	 * @param firstName First name of student
-	 * @param lastName Last name of student
-	 * @param id Id of student
-	 * @param email
-	 * @param password
+	 * Calls the new Student constructor and passes in MAX_CREDITS for the int maxCredits parameter in the new constructor. 
+	 * @param firstName Student's first name
+	 * @param lastName Student's last name
+	 * @param id Student's id
+	 * @param email Student's email
+	 * @param password Student's password
 	 */
 	public Student(String firstName, String lastName, String id, String email, String password) {
 		this(firstName, lastName, id, email, password, MAX_CREDITS);
 	}
 	
 	/**
-	 * @param firstName
-	 * @param lastName
-	 * @param id
-	 * @param email
-	 * @param password
+	 * Constructs a student with firstName, lastName, id, email, password, and maxCredits.
+	 * @param firstName Student's first name
+	 * @param lastName Student's last name
+	 * @param id Student's id
+	 * @param email Student's email
+	 * @param password Student's password
 	 */
 	public Student(String firstName, String lastName, String id, String email, String password, int maxCredits) {
 		super(firstName, lastName, id, email, password);
@@ -55,7 +58,8 @@ public class Student extends User {
 	}
 	
 	/**
-	 * @return the maxCredits
+	 * Gets the student's max credits of courses they can add to their schedule.
+	 * @return maxCredits Of Student
 	 */
 	public int getMaxCredits() {
 		return maxCredits;
@@ -77,7 +81,7 @@ public class Student extends User {
 
 	/**
 	 * Returns the sum of all of the credits for courses the in the student's schedule.
-	 * @return currentCredits
+	 * @return currentCredits Of student
 	 */
 	public int getCurrentCredits() {
 		//courses arraylist: course objects
@@ -91,9 +95,9 @@ public class Student extends User {
 	
 	/** 
 	 * Returns true if credits don't exceed Student's max credits AND 
-	 * the student isn't already enrolled into the course 
+	 * the student isn't already enrolled into the course. 
 	 * @param c Course 
-	 * @return true if don't exceed maxCredits and not already enrolled
+	 * @return true If don't exceed maxCredits and not already enrolled
 	 */
 	@Override
 	public boolean canAddCourse(Course c) {
@@ -124,7 +128,7 @@ public class Student extends User {
 	/** 
 	 * Removes course from courses list.
 	 * @param c Course to remove
-	 * @return true if course is removed from list
+	 * @return true If course is removed from list
 	 */
 	@Override
 	public boolean removeCourse(Course c) {
@@ -133,7 +137,7 @@ public class Student extends User {
 
 	/**
 	 * Returns the list of courses as an array.
-	 * @return list of student's courses
+	 * @return courses List of student's courses
 	 */
 	@Override
 	public Course[] getCourses() {
@@ -142,7 +146,8 @@ public class Student extends User {
 	}
 	
 	/** 
-	 * hashCode
+	 * HashCode that overrides Object's hashCode method.
+	 * For User's hashCode method, and courses, maxCredits, and name
 	 */
 	@Override
 	public int hashCode() {
@@ -155,7 +160,8 @@ public class Student extends User {
 	}
 
 	/** 
-	 * equals
+	 * Equals that overrides Object's equals method.
+	 * For User's equals method, and courses, maxCredits, and name
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -182,7 +188,9 @@ public class Student extends User {
 	}
 
 	/** 
-	 * toString
+	 * ToString that overrides Object's toString.
+	 * Returns firstName, lastName, id, email, password (from User), 
+	 * maxCredits, and name of student's courses separated by commas
 	 */
 	@Override
 	public String toString() {

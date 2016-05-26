@@ -6,33 +6,33 @@ package edu.ncsu.csc216.course_manager.users;
 import edu.ncsu.csc216.course_manager.courses.Course;
 
 /**
- * User abstract class.
+ * Generic representation of user for CourseManager.
  * @author Manaka Green
  */
 public abstract class User {
 	
-	/** User's first name */
+	/** User's first name. */
 	private String firstName;
-	/** User's last name */
+	/** User's last name. */
 	private String lastName;
-	/** User's id */
+	/** User's id. */
 	private String id;
-	/** User's email */
+	/** User's email. */
 	private String email;
-	/** User's hashed password */
+	/** User's hashed password. */
 	private String password;	
 	
 	/**
-	 * Creates a new user with the following information.  If any of the inputs are
-	 * null or an empty string an IllegalArgumentException is thrown.  If the email 
-	 * does not contain one @ and one '.' after the @, an IllegalArgumentException 
-	 * is thrown.  If any other error occurs when creating a User, an IllegalArgumentException
-	 * is thrown.
-	 * @param firstName user's first name
-	 * @param lastName users' last name
-	 * @param id user's id
-	 * @param email user's email
-	 * @param password user's plaintext password
+	 * Creates a new user with the following information:  
+	 * If any of the inputs are null or an empty string an IllegalArgumentException is thrown.  
+	 * If the email does not contain one @ and one '.' after the @, 
+	 * an IllegalArgumentException is thrown.  
+	 * If any other error occurs when creating a User, an IllegalArgumentException is thrown.
+	 * @param firstName User's first name
+	 * @param lastName Users' last name
+	 * @param id User's id
+	 * @param email User's email
+	 * @param password User's plaintext password
 	 */
 	public User(String firstName, String lastName, String id, String email, String password) {
 		setFirstName(firstName);
@@ -43,7 +43,7 @@ public abstract class User {
 	}
 
 	/**
-	 * Sets the user's first name
+	 * Sets the user's first name.
 	 * @param firstName the new first name for the user
 	 */
 	public void setFirstName(String firstName) {
@@ -96,7 +96,6 @@ public abstract class User {
 	/**
 	 * Stores a hashed password.  It is the responsibility of the client to 
 	 * hash the password coming into the system.  
-	 * for details on the MessageDigest object for hashing a password.
 	 * @param password hashed password to save.
 	 */
 	public void setPassword(String password) {
@@ -107,35 +106,40 @@ public abstract class User {
 	}
 	
 	/**
-	 * @return the firstName
+	 * Gets the user's first name.
+	 * @return firstName
 	 */
 	public String getFirstName() {
 		return firstName;
 	}
 	
 	/**
-	 * @return the lastName
+	 * Gets the user's last name.
+	 * @return lastName
 	 */
 	public String getLastName() {
 		return lastName;
 	}
 	
 	/**
-	 * @return the id
+	 * Gets the user's id.
+	 * @return id
 	 */
 	public String getId() {
 		return id;
 	}
 	
 	/**
-	 * @return the email
+	 * Gets the user's email address.
+	 * @return email
 	 */
 	public String getEmail() {
 		return email;
 	}
 	
 	/**
-	 * @return the password
+	 * Gets the user's password.
+	 * @return password
 	 */
 	public String getPassword() {
 		return password;
@@ -144,23 +148,23 @@ public abstract class User {
 	/**
 	 * Returns true if the student can add the course to their schedule.
 	 * @param c Course to check
-	 * @return true if the course can be added
+	 * @return true If the course can be added
 	 */
 	public abstract boolean canAddCourse(Course c);
 
 	/**
-	 * Adds a course to the user.  Returns false if the course cannot be 
-	 * added.
+	 * Adds a course to the user. 
+	 * Returns false if the course cannot be added.
 	 * @param c Course to add
-	 * @return true if the course is added
+	 * @return true If the course is added
 	 */
 	public abstract boolean addCourse(Course c);
 
 	/**
-	 * Removes a course from the user.  Returns false if the course cannot 
-	 * be removed.
+	 * Removes a course from the user.  
+	 * Returns false if the course cannot be removed.
 	 * @param c Course to remove
-	 * @return true if the course is remove
+	 * @return true If the course is removed
 	 */
 	public abstract boolean removeCourse(Course c);
 
@@ -171,7 +175,8 @@ public abstract class User {
 	public abstract Course[] getCourses();
 	
 	/** 
-	 * hashCode
+	 * HashCode that overrides Object's hashCode method.
+	 * For firstName, lastName, id, email, and password. 
 	 */
 	@Override
 	public int hashCode() {
@@ -186,7 +191,8 @@ public abstract class User {
 	}
 
 	/**
-	 * equals
+	 * Equals that overrides Object's equals method.
+	 * For firstName, lastName, id, email, and password.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -226,7 +232,8 @@ public abstract class User {
 	}
 
 	/**
-	 * toString
+	 * ToString that overrides Object's toString.
+	 * Returns firstName, lastName, id, email, and password separated by commas
 	 */
 	@Override
 	public String toString() {

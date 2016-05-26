@@ -9,29 +9,29 @@ import edu.ncsu.csc216.course_manager.users.Student;
 import edu.ncsu.csc216.course_manager.users.User;
 
 /**
+ * Creates a course.
  * @author Manaka Green
- *
  */
 public class Course implements Enrollable {
 	
 	/** Students enrolled in the course */
 	private ArrayList<User> enrolledStudents;
-	/** */
+	/**Name of course. */
 	private String name;
-	/** */
+	/**The amount of credits a class is worth. */
 	private int credits;
-	/** */
+	/**How many students the class can enroll. */
 	private int capacity;
-	/** */
+	/**The minimum hours a course can be. */
 	public static final int MIN_HOURS = 1;
-	/** */
+	/**The maximum hours a course can be. */
 	public static final int MAX_HOURS = 4;
 	
 	/**
 	 * Creates a Course with the given name and credit hours.
-	 * @param name course name
-	 * @param credits course credit hours
-	 * @param capacity course capacity
+	 * @param name Course name
+	 * @param credits Course credit hours
+	 * @param capacity Course capacity
 	 */
 	public Course(String name, int credits, int capacity) {
 		super();
@@ -44,6 +44,7 @@ public class Course implements Enrollable {
 	}
 
 	/**
+	 * Gets course name.
 	 * @return the name of the course
 	 */
 	public String getName() {
@@ -51,7 +52,8 @@ public class Course implements Enrollable {
 	}
 	
 	/**
-	 * @param name the name to set
+	 * Sets course name.
+	 * @param name The name to set
 	 */
 	public void setName(String name) {
 		if (name == null || name.length() == 0) {
@@ -61,13 +63,15 @@ public class Course implements Enrollable {
 	}
 	
 	/**
+	 * Gets course credits.
 	 * @return the credits
 	 */
 	public int getCredits() {
 		return credits;
 	}
 	/**
-	 * @param credits the credits to set
+	 * Sets course credits.
+	 * @param credits The credits to set
 	 */
 	public void setCredits(int credits) {
 		if (credits < MIN_HOURS || credits > MAX_HOURS) {
@@ -77,6 +81,7 @@ public class Course implements Enrollable {
 	}
 	
 	/**
+	 * Gets course capacity.
 	 * @return the capacity
 	 */
 	public int getCapacity() {
@@ -84,7 +89,8 @@ public class Course implements Enrollable {
 	}
 	
 	/**
-	 * @param capacity the capacity to set
+	 * Sets course capacity.
+	 * @param capacity The capacity to set
 	 */
 	public void setCapacity(int capacity) {
 	//We should not be able to set the capacity to a value 
@@ -96,7 +102,8 @@ public class Course implements Enrollable {
 	}
 
 	/**
-	 * hashCode
+	 * HashCode that overrides Object's hashCode method.
+	 * For firstName, lastName, id, email, and password.
 	 */
 	@Override
 	public int hashCode() {
@@ -107,7 +114,7 @@ public class Course implements Enrollable {
 	}
 
 	/**
-	 * equals
+	 * Equals that overrides Object's equals method for name.
 	 */
 	@Override
 	public boolean equals(Object obj) {
@@ -127,7 +134,8 @@ public class Course implements Enrollable {
 	}
 
 	/** 
-	 * toString
+	 * ToString that overrides Object's toString.
+	 * Returns course: name, credits, and capacity separated by commas
 	 */
 	@Override
 	public String toString() {
