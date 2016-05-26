@@ -12,9 +12,8 @@ import java.util.Scanner;
 import edu.ncsu.csc216.course_manager.courses.Course;
 
 /**
- * 
+ * Contains the functionality for reading and writing Course records to a file.
  * @author Manaka Green
- *
  */
 public class CourseRecordIO {
 	//The client of CourseRecordIO is the CourseManager class.
@@ -29,8 +28,7 @@ public class CourseRecordIO {
  
 	/**
 	 * Reads Course records from the given file.  If the file doesn't exist
-	 * a FileNotFoundException is thrown.  A line with a format error will be
-	 * ignored.
+	 * a FileNotFoundException is thrown.  A line with a format error will be ignored.
 	 * @param fileName name of file to read
 	 * @return Course records
 	 * @throws FileNotFoundException if the file doesn't exist

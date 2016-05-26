@@ -50,6 +50,7 @@ public class Student extends User {
 	 * @param id Student's id
 	 * @param email Student's email
 	 * @param password Student's password
+	 * @param maxCredits Student's maxCredits
 	 */
 	public Student(String firstName, String lastName, String id, String email, String password, int maxCredits) {
 		super(firstName, lastName, id, email, password);

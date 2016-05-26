@@ -14,9 +14,8 @@ import edu.ncsu.csc216.course_manager.manager.CourseManager;
 import edu.ncsu.csc216.course_manager.users.Student;
 
 /**
- * 
+ * Contains the functionality for reading and writing Student records to a file.
  * @author Manaka Green
- *
  */
 public class StudentRecordIO {
 	
@@ -94,7 +93,7 @@ public class StudentRecordIO {
 	/**
 	 * Opens and writes the information about the student records to the given file.
 	 * @param fileName file name to record data
-	 * @param courses list of courses
+	 * @param students list of students
 	 * @throws IOException if cannot write to file
 	 */
 	public static void writeStudentRecords(String fileName, List<Student> students) throws IOException {
