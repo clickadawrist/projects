@@ -2,10 +2,8 @@ package edu.ncsu.csc216.course_manager.io;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -23,7 +21,7 @@ public class CourseRecordIO {
 	//There are two methods in CourseManager that interact with CourseRecordIO: 
 	//loadCourses() and saveCourses().
 	/**
-	 * Supposed to be empty apparently
+	 * Supposed to be empty apparently.
 	 */
 	public CourseRecordIO() {
 		//super();
@@ -91,9 +89,6 @@ public class CourseRecordIO {
 		for (Course c: courses) {
 			fileOut.println(c.toString());
 		}
-		
 		fileOut.close();
 	}
-	
-	
 }

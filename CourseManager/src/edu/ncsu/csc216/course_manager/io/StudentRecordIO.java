@@ -1,6 +1,5 @@
 package edu.ncsu.csc216.course_manager.io;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -22,7 +21,7 @@ import edu.ncsu.csc216.course_manager.users.Student;
 public class StudentRecordIO {
 	
 	/**
-	 * Supposed to be empty apparently
+	 * Supposed to be empty apparently.
 	 */
 	public StudentRecordIO() {
 		//super();

@@ -6,11 +6,6 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Scanner;
-
-import javax.swing.filechooser.FileNameExtensionFilter;
-
 import edu.ncsu.csc216.course_manager.courses.Course;
 import edu.ncsu.csc216.course_manager.io.CourseRecordIO;
 import edu.ncsu.csc216.course_manager.io.StudentRecordIO;
@@ -96,7 +91,7 @@ public class CourseManager {
 					if (s.getPassword().equals(hashPW)) {
 						currentUser = s;
 						return true;
-						//^^You're logged in.
+						//^^You're logged in yay
 					}
 					return false;
 				} catch (NoSuchAlgorithmException e) {
@@ -239,23 +234,12 @@ public class CourseManager {
 	public Course getCourseByName(String courseFileName) {
 //look through arraylist of courses (instance field)...for loop 
 //check through the course list to the fileName - compare between them
-		
 		for (Course c: courses) {
 			if (c.getName().equals(courseFileName)) {
 				return c;
 			}
 		}
 		return null;
-		
-		/*
-		for (int i = 0; i < courses.size(); i++) { 
-			//String studentListOfAddedClasses = fileName;
-			if(courses.get(i).toString().compareTo(studentFileName) != 0) {
-				return null;
-			}
-			//what am I doing
-		}
-		*/
 	}
 	
 	/**
