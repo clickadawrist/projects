@@ -1,6 +1,3 @@
-/**
- * 
- */
 package edu.ncsu.csc216.course_manager.users;
 
 import edu.ncsu.csc216.course_manager.courses.Course;

@@ -23,7 +23,7 @@ public class StudentRecordIO {
 	 * Supposed to be empty apparently.
 	 */
 	public StudentRecordIO() {
-		//super();
+
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class StudentRecordIO {
 		Scanner lineScanner = new Scanner(studentLine);
 		try {
 			lineScanner.useDelimiter(",");
-			//why isn't this working
+
 			String firstName = lineScanner.next();
 			String lastName = lineScanner.next();
 			String id = lineScanner.next(); 

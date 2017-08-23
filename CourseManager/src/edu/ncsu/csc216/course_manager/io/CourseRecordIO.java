@@ -23,7 +23,7 @@ public class CourseRecordIO {
 	 * Supposed to be empty apparently.
 	 */
 	public CourseRecordIO() {
-		//super();
+
 	}
  
 	/**

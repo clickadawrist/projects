@@ -22,10 +22,6 @@ public class Student extends User {
 	/**How many credits the course is. */
 	private int credits;
 	
-	//vv unused apparently
-	///**The amount of seats for students.*/
-	//private int capacity;
-	
 	/**Maximum credits any student can have. */
 	public static final int MAX_CREDITS = 18;
 	/**Maximum credits a specific student can have (unique to each student). */
@@ -73,7 +69,6 @@ public class Student extends User {
 	 * @param maxCredits the maxCredits to set
 	 */
 	public void setMaxCredits(int maxCredits) {
-		//if(maxCredits < 0 || maxCredits > MAX_CREDITS || maxCredits < this.maxCredits) {
 		  if(maxCredits < 0 || maxCredits > MAX_CREDITS || maxCredits < getCurrentCredits()) {	
 			throw new IllegalArgumentException();
 		}

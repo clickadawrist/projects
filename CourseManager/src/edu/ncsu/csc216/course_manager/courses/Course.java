@@ -1,6 +1,3 @@
-/**
- * 
- */
 package edu.ncsu.csc216.course_manager.courses;
 
 import java.util.ArrayList;
